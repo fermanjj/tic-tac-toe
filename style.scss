@@ -1,0 +1,83 @@
+body {
+  font-family: Noto Sans, sans-serif;
+}
+.row {
+  display: flex;
+}
+.grid-item {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+  font-size: 100px;
+  line-height: 100px;
+  text-transform: capitalize;
+
+  &:hover {
+    background: #80808030;
+  }
+  &.top {
+    border-top: 0;
+  }
+  &.left {
+    border-left: 0;
+  }
+  &.right {
+    border-right: 0;
+  }
+  &.bottom {
+    border-bottom: 0;
+  }
+
+  &.x, &.o {
+    cursor: default;
+    &:hover {
+      background: #ff333330;
+    }
+  }
+  &.done {
+    cursor: default;
+    &:hover {
+      background: #ff333330;
+    }
+  }
+  &.x::after {
+    content: 'x';
+  }
+  &.o::after {
+    content: 'o';
+  }
+
+  &.win::before {
+    position: absolute;
+    height: 3px;
+    background: #c00;
+    content: "";
+    width: 100%;
+  }
+
+  &.win-across::before {
+    left: 0;
+    top: 50%;
+  }
+  &.win-down::before {
+    transform: rotate(90deg);
+    left: 0;
+    top: 50%;
+    width: 103%;
+  }
+  &.win-diag-left::before {
+    transform: rotate(-45deg);
+    top: 47%;
+    left: -23px;
+    width: 145%;
+  }
+  &.win-diag-right::before {
+    transform: rotate(45deg);
+    top: 47%;
+    left: -23px;
+    width: 145%;
+  }
+}
